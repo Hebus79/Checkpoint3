@@ -12,7 +12,7 @@ Q.2.1.2 Quelles préconisations proposes-tu concernant ce compte ?
 
 Il est préconiser de créer un compte standard avec un mot de passe robuste, ne faisant pas parti du groupe administrateur mais faisant parti d'un autre groupe
 Pour configurer un mot de passe pour l'utilisateur fred, utiliser la commande : sudo passwd fred
-Pour mettre l'utilisateur fred dans le groupe utilisateurs : sudo chgrp fred users
+Pour mettre l'utilisateur fred dans le groupe utilisateurs : sudo usermod -aG users fred
 
 
 ## Partie 2 : Configuration de SSH
@@ -21,6 +21,9 @@ Un serveur SSH est lancé sur le port par défaut.
 Il est possible de s'y connecter avec n'importe quel compte, y compris le compte root.
 
 Q.2.2.1 Désactiver complètement l'accès à distance de l'utilisateur root.
+
+Il est possible de désactiver complètement l'accès à distance de l'utilisateur root en modifiant le fichier de configuration "sshd_config" dans le repertoire /etc/ssh/
+Il faut ensuite ajouter ou decommenter la ligne : PermitRootLogin prohibit-password
 
 Q.2.2.2 Autoriser l'accès à distance à ton compte personnel uniquement.
 
