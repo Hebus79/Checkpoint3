@@ -92,7 +92,26 @@ Après cette commande, le Raid est en status Clean : mdadm --detail /dev/md0
 
 Q.2.3.4 Ajouter un nouveau volume logique LVM de 2 Gio qui servira à héberger des sauvegardes. Ce volume doit être monté automatiquement à chaque démarrage dans l'emplacement par défaut : /var/lib/bareos/storage.
 
+
+
+lvcreate -L 2G -n lv_datas cp3-vg
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/lvcreate.png)
+
+
+Pour le montage automatique au démarrage, il faut y rajouter les lignes suivantes dans le fichier /etc/fstab
+
+montage de data sur la partition ext4
+/dev/XXXX /var/lib/bareos/storageext4 defaults 0 2"
+
+
 Q.2.3.5 Combien d'espace disponible reste-t-il dans le groupe de volume ?
+Utilisation de la commande vgs
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/vgs.png)
+
+Il reste 1.79Go
+
 
 ## Partie 4 : Sauvegardes
 
@@ -100,6 +119,24 @@ Le logiciel bareos est installé sur le serveur.
 Les composants bareos-dir, bareos-sd et bareos-fd sont installés avec une configuration par défaut.
 
 Q.2.4.1 Expliquer succinctement les rôles respectifs des 3 composants bareos installés sur la VM.
+
+Bareos Director (Bareos-dir)
+
+C'est le chef d'orchestre. Il est responsable de la planification, du contrôle et du lancement des tâches de sauvegardes. Il contrôle l'ensemble des autres composants. Il est installé sur le serveur en charge de la gestion des sauvegardes.
+
+Bareos File Daemon (Bareos-fd)
+
+Ce composant est installé sur chaque machine devant être sauvegardée.
+Il est en charge de collecter les informations à sauvegarder et de les envoyer au Bareos Storage Daemon
+
+Bareos Storage Daemon (Bareos-sd)
+
+Bareos permet d'effectuer des sauvegardes sur différents types de supports (bandes magnétiques, disques, stockage distant...). L'écriture sur ces supports est effectué par un Storage Daemon.
+Il peut donc y en avoir plusieurs, si on souhaite par exemple que les sauvegardes soient hébergées sur les disques de plusieurs machines.
+Une tâche de sauvegarde est donc lancée par le Director qui met en relation un File Daemon présent sur la machine à sauvegarder avec un Storage Daemon présent lui sur la machine qui enregistrent les informations de la sauvegarde sur un support de stockage.
+
+
+
 
 ## Partie 5 : Filtrage et analyse réseau
 
