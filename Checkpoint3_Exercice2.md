@@ -24,10 +24,29 @@ Q.2.2.1 Désactiver complètement l'accès à distance de l'utilisateur root.
 
 Il est possible de désactiver complètement l'accès à distance de l'utilisateur root en modifiant le fichier de configuration "sshd_config" dans le repertoire /etc/ssh/
 Il faut ensuite ajouter ou decommenter la ligne : PermitRootLogin prohibit-password
+A noter qu'il est préférable de mettre les nouvelles lignes ou decommenter dans un nouveau fichier .conf dans le repertoire sshd_config.d
+Pour éviter de perdre la config au reboot du serveur.
 
 Q.2.2.2 Autoriser l'accès à distance à ton compte personnel uniquement.
 
+Toujours dans le fichier "sshd_config", il faut ajouter la ligne : AllowUsers fred
+
+
 Q.2.2.3 Mettre en place une authentification par clé valide et désactiver l'authentification par mot de passe
+
+
+a) Toujours dans le fichier "sshd_config", il faut ajouter la ligne : PubkeyAuthentication yes
+et : PasswordAuthentication no
+
+b) Générer une clé en 4096 bits sur le client : ssh-keygen -b 4096
+
+c) Copier la clé sur le serveur SSH : login en SSH depuis le client sur le serveur puis "ssh-copy-id root@adresse IP serveur"
+
+d) Depuis le client, vérification de la configuration du serveur après Redémarrage (ou systemctl restart sshd.service) :
+
+ssh fredr@adresse IP serveur
+
+S'assurer que la connection par clef fonctionne avant de désactiver l'authentification par mot de passe.
 
 
 ## Partie 3 : Analyse du stockage
