@@ -53,6 +53,9 @@ S'assurer que la connection par clef fonctionne avant de désactiver l'authentif
 
 Q.2.3.1 Quels sont les systèmes de fichiers actuellement montés ?
 
+Nous pouvons voir quels sont les systèmes de fichiers montés grâce à la commande df-k ou lsblk
+
+
 Q.2.3.2 Quel type de système de stockage ils utilisent ?
 
 Q.2.3.3 Ajouter un nouveau disque de 8,00 Gio au serveur et réparer le volume RAID
