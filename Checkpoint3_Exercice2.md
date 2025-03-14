@@ -94,15 +94,21 @@ Q.2.3.4 Ajouter un nouveau volume logique LVM de 2 Gio qui servira à héberger 
 
 
 
-lvcreate -L 2G -n lv_datas cp3-vg
+a) lvcreate -L 2G -n lv_datas cp3-vg
 
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/lvcreate.png)
 
 
-Pour le montage automatique au démarrage, il faut y rajouter les lignes suivantes dans le fichier /etc/fstab
+b) Montage du lv dans /var/lib/bareos/storage
 
-montage de data sur la partition ext4
-/dev/XXXX /var/lib/bareos/storageext4 defaults 0 2"
+mount /dev/md0/lv_datas  /var/lib/bareos/storage
+
+
+c) Pour le montage automatique au démarrage, il faut y rajouter les lignes suivantes dans le fichier /etc/fstab
+
+montage de lv_datas sur la partition ext4 :
+
+/dev/md0/lv_datas /var/lib/bareos/storage ext4 defaults 0 2"
 
 
 Q.2.3.5 Combien d'espace disponible reste-t-il dans le groupe de volume ?
@@ -153,7 +159,21 @@ Q.2.5.4 Sur nftables, ajouter les règles nécessaires pour autoriser bareos à 
 
 Q.2.6.1 Lister les 10 derniers échecs de connexion ayant eu lieu sur le serveur en indiquant pour chacun :
 
-  La date et l'heure de la tentative
+Dans le fichier /var/log/auth.log nous trouvons toutes les sessions d'authentification du système
+
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/log.png)
+
+
+  La date et l'heure de la tentative : Mardi 14 (mars) à 11h45
+
+
+
+
+
+
+
+  
   L'adresse IP de la machine ayant fait la tentative
 
 
