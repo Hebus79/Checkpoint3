@@ -5,7 +5,14 @@
 
 Q.2.1.1 Sur le serveur, créer un compte pour ton usage personnel.
 
+Il est possible de créer un compte "fred" avec la commande : sudo adduser -m fred
+l'option -m va créer en même temp que le compte le repertoire utilisateur dans /home
+
 Q.2.1.2 Quelles préconisations proposes-tu concernant ce compte ?
+
+Il est préconiser de créer un compte standard avec un mot de passe robuste, ne faisant pas parti du groupe administrateur mais faisant parti d'un autre groupe
+Pour configurer un mot de passe pour l'utilisateur fred, utiliser la commande : sudo passwd fred
+Pour mettre l'utilisateur fred dans le groupe utilisateurs : sudo chgrp fred users
 
 
 ## Partie 2 : Configuration de SSH
