@@ -81,7 +81,13 @@ Pour vérifier le partionnement : fdisk -l /dev/sdb
 
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/fdisksdb.png)
 
+La partition sdb1 est maintenant disponible pour la reconstruction du raid :
 
+mdadm --manage /dev/md0 --add /dev/sdd1
+
+Après cette commande, le Raid est en status Clean : mdadm --detail /dev/md0
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/raidok.png)
 
 
 Q.2.3.4 Ajouter un nouveau volume logique LVM de 2 Gio qui servira à héberger des sauvegardes. Ce volume doit être monté automatiquement à chaque démarrage dans l'emplacement par défaut : /var/lib/bareos/storage.
