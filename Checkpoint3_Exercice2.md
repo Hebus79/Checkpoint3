@@ -17,7 +17,7 @@ Pour mettre l'utilisateur fred dans le groupe utilisateurs : sudo usermod -aG us
 
 ## Partie 2 : Configuration de SSH
 
-Un serveur SSH est lancé sur le port par défaut.
+Un serveur SSH est lancé sur le port par défaut le port 22
 Il est possible de s'y connecter avec n'importe quel compte, y compris le compte root.
 
 Q.2.2.1 Désactiver complètement l'accès à distance de l'utilisateur root.
@@ -53,17 +53,36 @@ S'assurer que la connection par clef fonctionne avant de désactiver l'authentif
 
 Q.2.3.1 Quels sont les systèmes de fichiers actuellement montés ?
 
-Nous pouvons voir quels sont les systèmes de fichiers montés grâce à la commande df-k ou lsblk
+Nous pouvons voir quels sont les systèmes de fichiers montés grâce à la commande df-k
 
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/lsblk.png)
 
-Donc : sur un disque /dev/sda nous pouvons voir une partition primaire md0 en raid 1 et des partitions secondaires md0p1,md0p2 et md0p5
-Le système à été installé en utilisant lvm
-
-
 Q.2.3.2 Quel type de système de stockage ils utilisent ?
 
+
+
+Sur l'image ci-dessus et grâce à la commande lsblk nous pouvons voir un disque /dev/sd, un périphérique md0 en raid 1 (mode mirroir) et des partitions 
+md0p1,md0p2 et md0p5
+Le système à été installé en utilisant lvm sur la partitions md0p5
+
+
+
+
 Q.2.3.3 Ajouter un nouveau disque de 8,00 Gio au serveur et réparer le volume RAID
+
+Le disque est ajouté dans l'interface de Virtual Box et est visible en tapant "lsblk" sous le nom de disque : sdb
+
+La commande mdadm --detail /dev/md0 permet de voir que la situation n'est pas normale car l'état du RAID est Degraded 
+
+La commande fdisk/dev/sdb va permettre de partitionner le nouveau disque de 8Go
+
+Pour vérifier le partionnement : fdisk -l /dev/sdb
+
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/fdisksdb.png)
+
+
+
 
 Q.2.3.4 Ajouter un nouveau volume logique LVM de 2 Gio qui servira à héberger des sauvegardes. Ce volume doit être monté automatiquement à chaque démarrage dans l'emplacement par défaut : /var/lib/bareos/storage.
 
