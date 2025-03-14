@@ -55,6 +55,11 @@ Q.2.3.1 Quels sont les systèmes de fichiers actuellement montés ?
 
 Nous pouvons voir quels sont les systèmes de fichiers montés grâce à la commande df-k ou lsblk
 
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/lsblk.png)
+
+Donc : sur un disque /dev/sda nous pouvons voir une partition primaire md0 en raid 1 et des partitions secondaires md0p1,md0p2 et md0p5
+Le système à été installé en utilisant lvm
+
 
 Q.2.3.2 Quel type de système de stockage ils utilisent ?
 
