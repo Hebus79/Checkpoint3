@@ -41,9 +41,11 @@ Q.1.3.1 Créer une GPO Drive-Mount qui monte les lecteurs E: et F: sur les clien
 
 Création du partage des dossiers 
 
-![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/drivemape.png)
-![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/drivemapf.png)
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/Drivemape.png)
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/Drivemapf.png)
 
-Création de la GPO pour le montage des disques E et F avec liens de la GPO à l'OU LabUsers
+Création de la GPO pour le montage des disques E et F avec lien de la GPO à l'OU LabUsers
 
+
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/GPO.png)
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/linkgpo.png)
