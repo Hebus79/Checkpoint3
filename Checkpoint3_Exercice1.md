@@ -30,8 +30,10 @@ Q.1.2.2 De même, bloquer sa connexion au seul ordinateur CLIENT01.
 
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/logonto.png)
 
+
 Q.1.2.3 Mettre en place une stratégie de mot de passe pour durcir les comptes des utilisateurs de l'OU LabUsers.
 
+=> Je n'ai pas réussi à mettre en place la GPO
 
 
 ## Partie 3 : Lecteurs réseaux
