@@ -148,6 +148,8 @@ Une tâche de sauvegarde est donc lancée par le Director qui met en relation un
 
 Q.2.5.1 Quelles sont actuellement les règles appliquées sur Netfilter ?
 
+La commande "nft list table" permet d'afficher les tables qui contiennet les règles.
+
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/nftlist.png)
 
 Q.2.5.2 Quels types de communications sont autorisées ?
@@ -160,6 +162,8 @@ Q.2.5.3 Quels types sont interdit ?
 Tous les autres
 
 Q.2.5.4 Sur nftables, ajouter les règles nécessaires pour autoriser bareos à communiquer avec les clients bareos potentiellement présents sur l'ensemble des machines du réseau local sur lequel se trouve le serveur.
+
+=> Fail (certainement parce que il y a BAREOS dans l'enoncé...)
 
 
 ## Partie 6 : Analyse de logs
