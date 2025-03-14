@@ -148,9 +148,16 @@ Une tâche de sauvegarde est donc lancée par le Director qui met en relation un
 
 Q.2.5.1 Quelles sont actuellement les règles appliquées sur Netfilter ?
 
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/nftlist.png)
+
 Q.2.5.2 Quels types de communications sont autorisées ?
 
+
+Les communications sur le port 22 (ssh), le protocole ICMP (ping IP V4), le protocole IPV6-ICMP(ping IP V6)
+
 Q.2.5.3 Quels types sont interdit ?
+
+Tous les autres
 
 Q.2.5.4 Sur nftables, ajouter les règles nécessaires pour autoriser bareos à communiquer avec les clients bareos potentiellement présents sur l'ensemble des machines du réseau local sur lequel se trouve le serveur.
 
@@ -174,6 +181,6 @@ Dans le fichier /var/log/auth.log nous trouvons toutes les sessions d'authentifi
 
 
   
-  L'adresse IP de la machine ayant fait la tentative
+  L'adresse IP de la machine ayant fait la tentative : Pas d'adresse IP... Mauvais log ?
 
 
