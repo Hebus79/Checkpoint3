@@ -163,7 +163,7 @@ Tous les autres
 
 Q.2.5.4 Sur nftables, ajouter les règles nécessaires pour autoriser bareos à communiquer avec les clients bareos potentiellement présents sur l'ensemble des machines du réseau local sur lequel se trouve le serveur.
 
-=> Fail (certainement parce que il y a BAREOS dans l'enoncé...)
+![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/bareos.png)
 
 
 ## Partie 6 : Analyse de logs
