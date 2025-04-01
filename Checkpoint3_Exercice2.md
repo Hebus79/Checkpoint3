@@ -163,6 +163,10 @@ Tous les autres
 
 Q.2.5.4 Sur nftables, ajouter les règles nécessaires pour autoriser bareos à communiquer avec les clients bareos potentiellement présents sur l'ensemble des machines du réseau local sur lequel se trouve le serveur.
 
+Editer le fichier nftables.conf et ajouter les 3 lignes "tcp XXXX accept"
+
+nano /etc/nftables.conf
+
 ![Checkpoint3](https://github.com/Hebus79/Checkpoint3/blob/main/images/bareos.png)
 
 
